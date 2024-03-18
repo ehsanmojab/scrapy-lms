@@ -7,6 +7,10 @@ class StidSpider(scrapy.Spider):
     allowed_domains = ["lms2.usb.ac.ir"]
     start_urls = ["https://lms2.usb.ac.ir"]
     csv_file_name = 'stid.csv'
+
+    max_id = 8300
+    username = ""
+    password = ""
     
     fullname = []
     fullid = []
@@ -17,14 +21,14 @@ class StidSpider(scrapy.Spider):
         login_token = response.css('input[name="logintoken"]::attr(value)').get()
         yield FormRequest.from_response(response,
                                     formid='login', # fill username and password
-                                    formdata={'username': '', 'password': '', 'logintoken': login_token},
+                                    formdata={'username': self.username, 'password': self.password, 'logintoken': login_token},
                                     callback=self.after_login)
 
 
     def after_login(self, response):
         s = str(response.css('a::text').getall())
         id = 1
-        while id < 8300:
+        while id < self.max_id:
             yield scrapy.Request(url=f'https://lms2.usb.ac.ir/user/profile.php?id={id}', callback=self.get_id)
             id += 1
 
