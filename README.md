@@ -4,41 +4,49 @@
 <a name="readme-top"></a>
 
 <!-- ABOUT THE PROJECT -->
-## درباره پروژه      About Project
+## About Project
 
 
 
-پروژه ای ساده برای استخراج داده هایی مثل <b>شماره دانشجوی</b> <b> همراه با نام و نام خانوادگی</b> دانشجویان دانشگاه سیستان و بلوچستان با استفاده از scrapy.
-از سال ۱۴۰۱ دانشگاه ورژن جدیدی از سایت LMS ارائه شد.این سایت که راه ارتباطی بین دانشجو و استاد است و همچنین محتوا های درسی در آن قرار میگرفت. اما ورژن قبلی این سایت هنوز در دسترس است و میتوان داده های بی ارزشی مانند شماره دانشجویی دانشجویان را دید. البته این سایت فقط حاوی اطلاعات دانشجویان ماقبل ۱۴۰۱ است. ( البته خیلی هم بی ارزش نیست، میشه تعداد دانشجوهای هر سال رو با شماره دانشجویی ها بدست آورد! 😄)
+This is a simple Scrapy project designed to extract data such as <b>student IDs, first names, and last names </b> of students from the University of Sistan and Baluchestan's Learning Management System (LMS) website.
+
+In 2022, the university launched a new version of its LMS website, which serves as a communication platform between students and professors and hosts course materials. However, the old version of the website is still accessible and contains publicly available data, such as student IDs. Note that this old version only includes information for students enrolled before 2022. While this data may seem trivial, it can be used to estimate the number of students enrolled each year based on their IDs.
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-اگه شما هم علاقه مند هستید که این پروژه رو برای استحراج از سایت دانشگاه خودتون استفاده کنید میتونید از اینجا شروع کنید.
+   If you're interested in using this project to extract data from your university's LMS website, follow the steps below to get started.
 
+## Prerequisites
+   Before you begin, ensure you have the following installed:
+   ```
+      Python 3.x
+      Scrapy (install using pip install scrapy)
+      Pandas (install using pip install pandas)
+   ```
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repository:
    ```sh
    git clone https://github.com/ehsanmojab/scrapy-lms
    ```
-   or just download the code!
+   Alternatively, you can download the code as a ZIP file.
    
-3. Install NPM packages
+2. Install the required Python packages:
    ```sh
-   npm install scrapy
-   npm install FormRequest
-   npm install pandas
+   pip install scrapy pandas
    ```
-4. Chnage information in `stid.py`
+3. Update the `stid.py` file:
+   Open the stid.py file located in the lms/spiders directory.
 
-   یکی از پسورد هایي که داخل فایل `usernames.csv` هست رو بردارید.( در این فایل username های اکانت هایی هست، که با password آنها یکسان است! 😬)
- سپس جایگزین متغیر های username و password در کد `stid.py` در مسیر ‍`lms/spiders` کنید.
-همچنین لینک و دامنه سایت مورد نظر رو جایگزین کنید.
-6. Go to project directory and start crawling
+   Replace the USERNAME and PASSWORD variables with valid credentials. You can use one of the username-password pairs from the usernames.csv file (note: the usernames and passwords in this file are identical).
+
+Update the START_URL variable with the target LMS website's URL.
+4. Run the spider:
+   Navigate to the project directory and start the spider using the following command:
    ```sh
    scrapy crawl stid
    ```
