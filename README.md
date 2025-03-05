@@ -43,6 +43,7 @@ In 2022, the university launched a new version of its LMS website, which serves 
    Open the stid.py file located in the lms/spiders directory.
 
    Replace the USERNAME and PASSWORD variables with valid credentials. You can use one of the username-password pairs from the usernames.csv file (note: the usernames and passwords in this file are identical).
+   note: be aware if you want to run this spider on other LMS websites, you can you your own user and password!
 
 Update the START_URL variable with the target LMS website's URL.
 4. Run the spider:
